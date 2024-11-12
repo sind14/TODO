@@ -13,6 +13,7 @@
             <span class="text-success">Done</span>
             <form action="{% url "list:complete_task" task.pk %}" method="post" style="float: right">
               {% csrf_token %}
+              <input type="hidden" name="action" value="Undo">
               <button type="submit" class="btn btn-secondary">Undo</button>
             </form>
           {% else %}
@@ -26,9 +27,9 @@
         <div>
           Created: {{ task.datetime }}
           {% if task.deadline %}
-            <span
-                class="text-dark-red">Deadline: {{ task.deadline }}
-              </span>
+            <span style="color: darkred">
+              Deadline: {{ task.deadline }}
+            </span>
           {% endif %}
         </div>
         <div class="text-secondary">
