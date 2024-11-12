@@ -1,6 +1,7 @@
+{% extends "base.html" %}
 {% load custom_tags %}
-
-<h1>Create New Item</h1>
+{% block content %}
+<h1>Task</h1>
 <form method="post">
   {% csrf_token %}
   {% for field in form %}
@@ -14,5 +15,6 @@
       {% endif %}
     </div>
   {% endfor %}
-  <button type="submit">Save</button>
+  <button type="submit" class="btn btn-primary">Save</button>
 </form>
+{% endblock %}
