@@ -1,0 +1,18 @@
+{% load custom_tags %}
+
+<h1>Create New Item</h1>
+<form method="post">
+  {% csrf_token %}
+  {% for field in form %}
+    <div>
+      {{ field.label_tag }}<br>
+      {{ field|add_class:"form-control" }}<br>
+      {% if field.errors %}
+        <div class="text-danger">
+          {{ field.errors }}
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+  <button type="submit">Save</button>
+</form>
