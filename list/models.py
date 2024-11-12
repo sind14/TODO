@@ -12,7 +12,7 @@ class Task(models.Model):
     content = models.CharField(max_length=100)
     datetime = models.DateTimeField(auto_now_add=True)
     deadline = models.DateTimeField(blank=True, null=True)
-    is_completed = models.BooleanField(default=False)
+    is_completed = models.BooleanField(default=False, blank=True)
     tags = models.ManyToManyField(Tag, blank=True)
 
     def __str__(self):
